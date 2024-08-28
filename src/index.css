@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-var1: #08cff6;
+  --color-var2: #144a73;
+  --color-var3: #122e42;
+  /* --color-var4: #0a253a; */
+  --color-var4: #05131e;
+  --color-var5: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  font-family: Rubik, sans-serif !important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: var(--color-var4);
+}
+
+.spinner-container {
+  height: 80vh;
+  display: grid;
+  place-items: center;
+}
+
+.spinner {
+  width: 75px;
+  aspect-ratio: 0.75;
+  --c: no-repeat linear-gradient(var(--color-var1) 0 0);
+  background:
+    var(--c) 0% 50%,
+    var(--c) 50% 50%,
+    var(--c) 100% 50%;
+  animation: l7 1s infinite linear alternate;
+}
+
+@keyframes l7 {
+  0% {
+    background-size:
+      20% 50%,
+      20% 50%,
+      20% 50%;
+  }
+  20% {
+    background-size:
+      20% 20%,
+      20% 50%,
+      20% 50%;
+  }
+  40% {
+    background-size:
+      20% 100%,
+      20% 20%,
+      20% 50%;
+  }
+  60% {
+    background-size:
+      20% 50%,
+      20% 100%,
+      20% 20%;
+  }
+  80% {
+    background-size:
+      20% 50%,
+      20% 50%,
+      20% 100%;
+  }
+  100% {
+    background-size:
+      20% 50%,
+      20% 50%,
+      20% 50%;
+  }
+}
+
+.loader-container {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.loader {
+  width: 100px;
+  height: 180px;
+  position: relative;
+}
+
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-var1);
+  box-shadow: 0 0 0 50px;
+  clip-path: polygon(
+    100% 0,
+    23% 46%,
+    46% 44%,
+    15% 69%,
+    38% 67%,
+    0 100%,
+    76% 57%,
+    53% 58%,
+    88% 33%,
+    60% 37%
+  );
+}
+.loader:after {
+  animation: l8 1s infinite;
+  transform: perspective(300px) translateZ(0px);
+}
+@keyframes l8 {
+  to {
+    transform: perspective(300px) translateZ(180px);
+    opacity: 0;
+  }
+}
