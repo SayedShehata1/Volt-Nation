@@ -15,7 +15,7 @@
   
   <div align="center">
     <br>
-    <img src="./img/preview1.png" alt="Logo" height="50">
+    <img src="./img/preview1.png" alt="Home-Page">
     <br>
     <br>
   </div>
